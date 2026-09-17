@@ -1,18 +1,394 @@
 <!DOCTYPE html>
 <html lang="sq">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Stelina Nailzz</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8fb;
+            color: #333;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d66b91;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #d66b91;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 8%;
+            gap: 40px;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+            color: #c95782;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #d66b91;
+            color: white;
+            padding: 15px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #b94f73;
+        }
+
+        .hero-image {
+            width: 380px;
+            height: 450px;
+            background-color: #f3d5df;
+            border-radius: 200px 200px 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a64d70;
+            text-align: center;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 35px;
+            color: #c95782;
+            margin-bottom: 30px;
+        }
+
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* CAT */
+
+        .cat {
+            text-align: center;
+        }
+
+        .cat-box {
+            max-width: 700px;
+            margin: auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .cat-box h3 {
+            font-size: 28px;
+            color: #c95782;
+            margin-bottom: 15px;
+        }
+
+        .cat-box p {
+            line-height: 1.7;
+        }
+
+        /* BOOKING */
+
+        .booking {
+            background-color: #fcecf2;
+            text-align: center;
+        }
+
+        .booking-box {
+            max-width: 700px;
+            margin: auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .booking-box p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            background-color: white;
+        }
+
+        .contact p {
+            margin: 10px 0;
+        }
+
+        .instagram {
+            color: #d66b91;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #333;
+            color: white;
+        }
+
+        /* TELEFON */
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .hero-image {
+                width: 280px;
+                height: 350px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <h1>Stelina Nailzz</h1>
+    <!-- NAVBAR -->
 
-    <p>Mirë se vini në faqen e Stelinës!</p>
+    <nav>
+        <div class="logo">Stelina Nailzz 💅</div>
 
-    <button>Rezervo një takim</button>
+        <div>
+            <a href="#home">Kryefaqja</a>
+            <a href="#about">Rreth Meje</a>
+            <a href="#cat">Asistentja Ime</a>
+            <a href="#booking">Rezervo</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h1>Thonj me Lezet ✨</h1>
+
+            <p>
+                Përshëndetje! Unë jam Stelina,
+                a certified nail artist në Shkodër.
+                Këtu mund të rezervosh takimin tënd
+                dhe të kujdesesh për thonjtë e tu.
+            </p>
+
+            <a href="#booking" class="button">
+                Rezervo një takim
+            </a>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <!-- KËTU DO VENDOSIM FOTON E STELINËS -->
+
+            <p>
+                Foto e<br>
+                Stelinës<br>
+                këtu 💅
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- RRETH MEJE -->
+
+    <section class="about" id="about">
+
+        <h2>Rreth Meje</h2>
+
+        <div class="about-content">
+
+            <p>
+                Unë jam Stelina dhe merrem me kujdesin
+                dhe stilimin e thonjve.
+            </p>
+
+            <p>
+                Studioja ime ndodhet në
+                <strong>Dragusha Gold, kati i dytë, Shkodër.</strong>
+            </p>
+
+            <p>
+                Për mua çdo takim është një mundësi
+                për të krijuar diçka të bukur dhe
+                për t'ju bërë të ndiheni mirë. 💗
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ASISTENTJA -->
+
+    <section class="cat" id="cat">
+
+        <h2>Asistentja Ime 🐱</h2>
+
+        <div class="cat-box">
+
+            <h3>Molla 🐾</h3>
+
+            <p>
+                Kjo është Molla, asistentja ime e vogël.
+                Ajo është gjithmonë aty për të na mbajtur
+                shoqëri gjatë punës. 🤍
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- REZERVIMI -->
+
+    <section class="booking" id="booking">
+
+        <h2>Rezervo Takimin 💅</h2>
+
+        <div class="booking-box">
+
+            <p>
+                Zgjidh ditën dhe orarin që dëshiron
+                për takimin tënd.
+            </p>
+
+            <!-- KËTU DO VENDOSIM SISTEMIN E REZERVIMEVE -->
+
+            <a href="#" class="button">
+                Rezervimet së shpejti
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- KONTAKT -->
+
+    <section class="contact">
+
+        <h2>Na Kontakto</h2>
+
+        <p>
+            📍 Dragusha Gold, kati i dytë, Shkodër
+        </p>
+
+        <p>
+            📱 069 XXX XXXX
+        </p>
+
+        <p>
+            Instagram:
+            <span class="instagram">
+                @stelina_nailzz
+            </span>
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Stelina Nailzz
+        </p>
+
+    </footer>
 
 </body>
+
 </html>
