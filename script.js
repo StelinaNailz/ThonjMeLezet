@@ -153,7 +153,7 @@ async function shfaqKalendarin() {
         new Date(year, month + 1, 0).getDate();
 
 
-    // Merrim oraret e zëna nga Supabase
+    // Merrim të dhënat nga Supabase
     const firstDate =
         `${year}-${String(month + 1).padStart(2, "0")}-01`;
 
@@ -209,12 +209,6 @@ async function shfaqKalendarin() {
             `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 
 
-        // Gjej oraret e zëna për këtë datë
-        const dayBusyTimes = data
-            .filter(item => item.date === dateString)
-            .map(item => item.time.slice(0, 5));
-
-
         const dayNumber = document.createElement("div");
 
         dayNumber.className = "day-number";
@@ -222,29 +216,11 @@ async function shfaqKalendarin() {
         dayNumber.textContent = day;
 
 
-        const dayStatus = document.createElement("div");
-
-        dayStatus.className = "day-status";
-
-
-        if (dayBusyTimes.length === workingTimes.length) {
-
-            dayStatus.textContent = "Plot";
-
-        } else if (dayBusyTimes.length > 0) {
-
-            dayStatus.textContent = "Ka orare të zëna";
-
-        } else {
-
-            dayStatus.textContent = "E lirë";
-
-        }
-
+        // =========================
+        // SHTO NUMRIN E DITES
+        // =========================
 
         dayElement.appendChild(dayNumber);
-
-        dayElement.appendChild(dayStatus);
 
 
         // =========================
