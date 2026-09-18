@@ -207,13 +207,16 @@ saveButton.addEventListener("click", async function () {
 
     if (deleteError) {
 
-        console.log(deleteError);
+    console.error("DELETE ERROR:", deleteError);
 
-        alert("Gabim gjatë fshirjes!");
+    alert(
+        "Gabim gjatë fshirjes:\n" +
+        deleteError.message
+    );
 
-        return;
+    return;
 
-    }
+}
 
 
     // =========================
