@@ -27,6 +27,7 @@
             min-height: 100vh;
         }
 
+
         /* =========================
            LOGIN
         ========================= */
@@ -166,6 +167,11 @@
             margin-bottom: 30px;
         }
 
+
+        /* =========================
+           ORARET
+        ========================= */
+
         .times {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -180,13 +186,31 @@
             color: #302a26;
             cursor: pointer;
             font-family: "Inter", sans-serif;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .time:hover {
+            border-color: #6b594d;
+            transform: translateY(-2px);
         }
 
         .time.active {
-    background: #9b4b4b !important;
-    color: white !important;
-    border-color: #9b4b4b !important;
-}
+            background: #9b4b4b !important;
+            color: white !important;
+            border-color: #9b4b4b !important;
+        }
+
+        .time.active:hover {
+            background: #9b4b4b !important;
+            transform: none;
+        }
+
+
+        /* =========================
+           SAVE
+        ========================= */
+
         .save-button {
             width: 100%;
             padding: 17px;
@@ -202,6 +226,11 @@
         .save-button:hover {
             background: #302a26;
         }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 500px) {
 
@@ -260,7 +289,6 @@
     </div>
 
 
-
     <!-- =========================
          ADMIN PAGE
     ========================= -->
@@ -312,22 +340,22 @@
 
             <div class="times">
 
-    <button class="time-button" data-time="08:00">08:00</button>
-    <button class="time-button" data-time="09:00">09:00</button>
-    <button class="time-button" data-time="10:00">10:00</button>
-    <button class="time-button" data-time="11:00">11:00</button>
-    <button class="time-button" data-time="12:00">12:00</button>
-    <button class="time-button" data-time="13:00">13:00</button>
-    <button class="time-button" data-time="14:00">14:00</button>
-    <button class="time-button" data-time="15:00">15:00</button>
-    <button class="time-button" data-time="16:00">16:00</button>
-    <button class="time-button" data-time="17:00">17:00</button>
-    <button class="time-button" data-time="18:00">18:00</button>
-    <button class="time-button" data-time="19:00">19:00</button>
-    <button class="time-button" data-time="20:00">20:00</button>
-    <button class="time-button" data-time="21:00">21:00</button>
+                <button type="button" class="time" data-time="08:00">08:00</button>
+                <button type="button" class="time" data-time="09:00">09:00</button>
+                <button type="button" class="time" data-time="10:00">10:00</button>
+                <button type="button" class="time" data-time="11:00">11:00</button>
+                <button type="button" class="time" data-time="12:00">12:00</button>
+                <button type="button" class="time" data-time="13:00">13:00</button>
+                <button type="button" class="time" data-time="14:00">14:00</button>
+                <button type="button" class="time" data-time="15:00">15:00</button>
+                <button type="button" class="time" data-time="16:00">16:00</button>
+                <button type="button" class="time" data-time="17:00">17:00</button>
+                <button type="button" class="time" data-time="18:00">18:00</button>
+                <button type="button" class="time" data-time="19:00">19:00</button>
+                <button type="button" class="time" data-time="20:00">20:00</button>
+                <button type="button" class="time" data-time="21:00">21:00</button>
 
-</div>
+            </div>
 
 
             <button
