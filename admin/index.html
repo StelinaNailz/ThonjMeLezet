@@ -1,1 +1,557 @@
+<!DOCTYPE html>
+<html lang="sq">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stelina | Admin</title>
+
+    <!-- FONTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        :root {
+            --cream: #f8f4ee;
+            --beige: #e9dfd2;
+            --taupe: #b9aa9b;
+            --brown: #6b594d;
+            --dark: #302a26;
+            --white: #fffdf9;
+        }
+
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            background: var(--cream);
+            color: var(--dark);
+
+            font-family: "Inter", sans-serif;
+
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            padding: 25px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            border-bottom: 1px solid rgba(107, 89, 77, 0.12);
+        }
+
+
+        .logo {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 30px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .admin-text {
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: var(--brown);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+
+            max-width: 600px;
+
+            margin: auto;
+
+            padding: 60px 25px 80px;
+        }
+
+
+        /* =========================
+           WELCOME
+        ========================= */
+
+        .welcome {
+
+            margin-bottom: 40px;
+        }
+
+
+        .welcome small {
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: var(--brown);
+        }
+
+
+        .welcome h1 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 55px;
+
+            font-weight: 400;
+
+            line-height: 1;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           DATE
+        ========================= */
+
+        .date-section {
+
+            background: var(--white);
+
+            padding: 25px;
+
+            border: 1px solid rgba(107, 89, 77, 0.1);
+
+            margin-bottom: 25px;
+        }
+
+
+        .date-label {
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: var(--brown);
+
+            margin-bottom: 12px;
+        }
+
+
+        input[type="date"] {
+
+            width: 100%;
+
+            border: none;
+
+            border-bottom: 1px solid var(--taupe);
+
+            background: transparent;
+
+            padding: 10px 0;
+
+            font-family: "Inter", sans-serif;
+
+            font-size: 16px;
+
+            color: var(--dark);
+
+            outline: none;
+        }
+
+
+        /* =========================
+           HOURS
+        ========================= */
+
+        .hours-section {
+
+            background: var(--white);
+
+            padding: 25px;
+
+            border: 1px solid rgba(107, 89, 77, 0.1);
+        }
+
+
+        .hours-title {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hours-title h2 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 32px;
+
+            font-weight: 400;
+        }
+
+
+        .status {
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            color: var(--brown);
+        }
+
+
+        /* =========================
+           TIME BUTTONS
+        ========================= */
+
+        .times {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+        }
+
+
+        .time {
+
+            border: 1px solid var(--taupe);
+
+            background: var(--cream);
+
+            padding: 18px 10px;
+
+            font-family: "Inter", sans-serif;
+
+            font-size: 14px;
+
+            color: var(--dark);
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+
+        .time:hover {
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ORARI AKTIVE */
+
+        .time.active {
+
+            background: var(--brown);
+
+            color: var(--white);
+
+            border-color: var(--brown);
+        }
+
+
+        /* =========================
+           SAVE BUTTON
+        ========================= */
+
+        .save-button {
+
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 17px;
+
+            border: none;
+
+            background: var(--brown);
+
+            color: var(--white);
+
+            font-family: "Inter", sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .save-button:hover {
+
+            background: var(--dark);
+        }
+
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info {
+
+            text-align: center;
+
+            margin-top: 30px;
+
+            font-size: 11px;
+
+            color: #81746b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            main {
+
+                padding: 45px 18px 60px;
+            }
+
+
+            .welcome h1 {
+
+                font-size: 48px;
+            }
+
+
+            .times {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+            STELINA
+        </div>
+
+        <div class="admin-text">
+            Admin
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main>
+
+
+        <!-- =========================
+             WELCOME
+        ========================= -->
+
+        <section class="welcome">
+
+            <small>
+                Menaxho rezervimet
+            </small>
+
+            <h1>
+                Orari yt.
+            </h1>
+
+        </section>
+
+
+
+        <!-- =========================
+             DATE
+        ========================= -->
+
+        <section class="date-section">
+
+            <div class="date-label">
+                Zgjidh datën
+            </div>
+
+            <input
+                type="date"
+                id="date"
+            >
+
+        </section>
+
+
+
+        <!-- =========================
+             HOURS
+        ========================= -->
+
+        <section class="hours-section">
+
+
+            <div class="hours-title">
+
+                <h2>
+                    Oraret
+                </h2>
+
+                <div class="status">
+                    Kliko për të aktivizuar
+                </div>
+
+            </div>
+
+
+
+            <!-- ORARET 08:00 - 20:00 -->
+
+            <div class="times">
+
+                <button class="time" data-time="08:00">
+                    08:00
+                </button>
+
+                <button class="time" data-time="09:00">
+                    09:00
+                </button>
+
+                <button class="time" data-time="10:00">
+                    10:00
+                </button>
+
+                <button class="time" data-time="11:00">
+                    11:00
+                </button>
+
+                <button class="time" data-time="12:00">
+                    12:00
+                </button>
+
+                <button class="time" data-time="13:00">
+                    13:00
+                </button>
+
+                <button class="time" data-time="14:00">
+                    14:00
+                </button>
+
+                <button class="time" data-time="15:00">
+                    15:00
+                </button>
+
+                <button class="time" data-time="16:00">
+                    16:00
+                </button>
+
+                <button class="time" data-time="17:00">
+                    17:00
+                </button>
+
+                <button class="time" data-time="18:00">
+                    18:00
+                </button>
+
+                <button class="time" data-time="19:00">
+                    19:00
+                </button>
+
+                <button class="time" data-time="20:00">
+                    20:00
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SAVE
+            ========================= -->
+
+            <button
+                class="save-button"
+                id="saveButton">
+
+                Ruaj orarin
+
+            </button>
+
+
+        </section>
+
+
+
+        <div class="info">
+
+            Orari që aktivizon këtu do t'u shfaqet klientëve.
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script src="admin.js"></script>
+
+
+</body>
+
+</html>
