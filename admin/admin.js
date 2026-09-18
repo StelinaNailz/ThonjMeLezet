@@ -1,10 +1,7 @@
 const PASSWORD = "StelinaDheMolla";
 
 
-// =========================
 // LOGIN
-// =========================
-
 const loginPage = document.getElementById("loginPage");
 const adminPage = document.getElementById("adminPage");
 
@@ -12,8 +9,7 @@ const passwordInput = document.getElementById("password");
 const loginButton = document.getElementById("loginButton");
 const errorMessage = document.getElementById("errorMessage");
 
-
-function login() {
+loginButton.addEventListener("click", function () {
 
     if (passwordInput.value === PASSWORD) {
 
@@ -24,35 +20,15 @@ function login() {
 
         errorMessage.style.display = "block";
 
-        passwordInput.value = "";
-
-        passwordInput.focus();
-
-    }
-
-}
-
-
-loginButton.addEventListener("click", login);
-
-
-passwordInput.addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-        login();
     }
 
 });
 
 
-// =========================
 // SUPABASE
-// =========================
-
 const SUPABASE_URL = "https://wzlcpnvymfdhqbamumwp.supabase.co";
 
-const SUPABASE_KEY = "sb_publishable_HpAzGQC7K5N_xvP2QKEUaA_4rCHI6zX";
-
+const SUPABASE_KEY = "sb_publishable_HpAzGQC7K5N_xvP2QKEUa_4rCHI6zX";
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
@@ -60,45 +36,29 @@ const supabaseClient = window.supabase.createClient(
 );
 
 
-// =========================
-// ADMIN
-// =========================
-
+// DATA
 const dateInput = document.getElementById("date");
 
-const timeButtons =
-    document.querySelectorAll(".time-button");
+const timeButtons = document.querySelectorAll(".time");
 
-const saveButton =
-    document.getElementById("saveButton");
+const saveButton = document.getElementById("saveButton");
 
 
-// =========================
 // DATA E SOTME
-// =========================
-
 const today = new Date();
 
-const year = today.getFullYear();
-
-const month =
-    String(today.getMonth() + 1).padStart(2, "0");
-
-const day =
+dateInput.value =
+    today.getFullYear() +
+    "-" +
+    String(today.getMonth() + 1).padStart(2, "0") +
+    "-" +
     String(today.getDate()).padStart(2, "0");
 
 
-dateInput.value =
-    `${year}-${month}-${day}`;
+// KLIKO ORARIN
+timeButtons.forEach(function (button) {
 
-
-// =========================
-// KLIK ORARET
-// =========================
-
-timeButtons.forEach(function(button) {
-
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
 
         button.classList.toggle("active");
 
@@ -107,14 +67,10 @@ timeButtons.forEach(function(button) {
 });
 
 
-// =========================
-// RUAJ ORARIN
-// =========================
-
-saveButton.addEventListener("click", async function() {
+// RUAJ
+saveButton.addEventListener("click", async function () {
 
     const selectedDate = dateInput.value;
-
 
     if (!selectedDate) {
 
@@ -128,7 +84,7 @@ saveButton.addEventListener("click", async function() {
     const busyTimes = [];
 
 
-    timeButtons.forEach(function(button) {
+    timeButtons.forEach(function (button) {
 
         if (button.classList.contains("active")) {
 
@@ -139,7 +95,7 @@ saveButton.addEventListener("click", async function() {
     });
 
 
-    // FSHIJ ORARET E VJETRA
+    // FSHI ORARET E VJETRA
     const { error: deleteError } =
         await supabaseClient
             .from("availability")
@@ -149,55 +105,44 @@ saveButton.addEventListener("click", async function() {
 
     if (deleteError) {
 
-        console.error(deleteError);
+        console.log(deleteError);
 
-        alert("Gabim gjatë fshirjes së orareve!");
-
-        return;
-
-    }
-
-
-    // NUK KA ORARE TË ZËNA
-    if (busyTimes.length === 0) {
-
-        alert("Orari u pastrua për këtë datë! 🤎");
+        alert("Gabim gjatë fshirjes!");
 
         return;
 
     }
 
 
-    // KRIJO ORARET E ZËNA
-    const rows = busyTimes.map(function(time) {
+    // RUAJ ORARET E ZËNA
+    if (busyTimes.length > 0) {
 
-        return {
+        const rows = busyTimes.map(function (time) {
 
-            date: selectedDate,
+            return {
+                date: selectedDate,
+                time: time,
+                available: false
+            };
 
-            time: time,
-
-            available: false
-
-        };
-
-    });
+        });
 
 
-    // RUAJ NË SUPABASE
-    const { error: insertError } =
-        await supabaseClient
-            .from("availability")
-            .insert(rows);
+        const { error: insertError } =
+            await supabaseClient
+                .from("availability")
+                .insert(rows);
 
 
-    if (insertError) {
+        if (insertError) {
 
-        console.error(insertError);
+            console.log(insertError);
 
-        alert("Gabim gjatë ruajtjes!");
+            alert("Gabim gjatë ruajtjes!");
 
-        return;
+            return;
+
+        }
 
     }
 
