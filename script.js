@@ -78,6 +78,28 @@ openCalendarButton.addEventListener("click", function() {
 
 
 // =========================
+// NDRYSHO MUAJIN
+// =========================
+
+prevMonth.addEventListener("click", function() {
+
+    currentDate.setMonth(currentDate.getMonth() - 1);
+
+    shfaqKalendarin();
+
+});
+
+
+nextMonth.addEventListener("click", function() {
+
+    currentDate.setMonth(currentDate.getMonth() + 1);
+
+    shfaqKalendarin();
+
+});
+
+
+// =========================
 // MUJI I KALENDARIT
 // =========================
 
@@ -140,11 +162,16 @@ async function shfaqKalendarin() {
 
     let firstDayIndex = firstDay.getDay();
 
+
     // Java fillon me Hënë
     if (firstDayIndex === 0) {
+
         firstDayIndex = 6;
+
     } else {
+
         firstDayIndex = firstDayIndex - 1;
+
     }
 
 
@@ -406,6 +433,7 @@ function zgjidhOrarin(time, button) {
 
 
     bookingForm.style.display = "block";
+
 
     bookingForm.scrollIntoView({
         behavior: "smooth",
