@@ -1,4 +1,63 @@
 // ========================================
+// PASSWORD
+// ========================================
+
+const PASSWORD = "StelinaDheMolla";
+
+const loginPage = document.getElementById("loginPage");
+const adminPage = document.getElementById("adminPage");
+
+const passwordInput = document.getElementById("password");
+const loginButton = document.getElementById("loginButton");
+const errorMessage = document.getElementById("errorMessage");
+
+
+// ========================================
+// LOGIN
+// ========================================
+
+function login() {
+
+    const password = passwordInput.value;
+
+    if (password === PASSWORD) {
+
+        loginPage.style.display = "none";
+        adminPage.style.display = "block";
+
+        errorMessage.style.display = "none";
+
+    } else {
+
+        errorMessage.style.display = "block";
+
+        passwordInput.value = "";
+        passwordInput.focus();
+
+    }
+
+}
+
+
+// Klik "Hyr"
+
+loginButton.addEventListener("click", login);
+
+
+// Mund të shtypë edhe Enter
+
+passwordInput.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        login();
+
+    }
+
+});
+
+
+// ========================================
 // SUPABASE
 // ========================================
 
@@ -61,12 +120,12 @@ saveButton.addEventListener("click", async function() {
         alert("Zgjidh një datë.");
 
         return;
+
     }
 
 
-    // Marrim vetëm oraret aktive
-
     const activeTimes = [];
+
 
     timeButtons.forEach(function(button) {
 
@@ -79,9 +138,7 @@ saveButton.addEventListener("click", async function() {
     });
 
 
-    // ====================================
-    // FSHIJ ORARET E VJETRA PËR KËTË DATË
-    // ====================================
+    // FSHIJ ORARET E VJETRA
 
     const { error: deleteError } = await supabaseClient
         .from("availability")
@@ -96,33 +153,29 @@ saveButton.addEventListener("click", async function() {
         alert("Pati një problem gjatë ruajtjes.");
 
         return;
+
     }
 
 
-    // ====================================
-    // NËSE NUK KA ASNJË ORAR AKTIV
-    // ====================================
+    // NUK KA ORARE
 
     if (activeTimes.length === 0) {
 
         alert("Orari u ruajt. Nuk ka orare të lira për këtë datë.");
 
         return;
+
     }
 
 
-    // ====================================
-    // KRIJO ORARET E REJA
-    // ====================================
+    // KRIJO ORARET
 
     const data = activeTimes.map(function(time) {
 
         return {
 
             date: date,
-
             time: time,
-
             available: true
 
         };
@@ -130,9 +183,7 @@ saveButton.addEventListener("click", async function() {
     });
 
 
-    // ====================================
-    // RUAJ NË SUPABASE
-    // ====================================
+    // RUAJ
 
     const { error: insertError } = await supabaseClient
         .from("availability")
@@ -146,6 +197,7 @@ saveButton.addEventListener("click", async function() {
         alert("Pati një problem gjatë ruajtjes.");
 
         return;
+
     }
 
 
