@@ -17,7 +17,7 @@ SUPABASE_KEY
 // pa +, pa hapësira
 // Shembull: 35569XXXXXXX
 
-const WHATSAPP_NUMBER = "35569XXXXXXX";
+const WHATSAPP_NUMBER = "355699128681";
 
 // =========================
 // ELEMENTET
