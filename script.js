@@ -1,4 +1,4 @@
-
+alert("1");
 const SUPABASE_URL = 
     "https://wzlcpnvymfdhqbamumwp.supabase.co";
 
