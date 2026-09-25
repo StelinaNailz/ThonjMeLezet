@@ -1,5 +1,5 @@
 
-const SUPABASE_URL =
+const SUPABASE_URL = 
     "https://wzlcpnvymfdhqbamumwp.supabase.co";
 
 const SUPABASE_KEY =
