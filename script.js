@@ -15,7 +15,7 @@ const supabaseClient = window.supabase
 // NUMRI WHATSAPP
 // =========================
 
-const WHATSAPP_NUMBER = "355699128681";
+const WHATSAPP_NUMBER = "355698308449";
 
 
 // =========================
@@ -682,11 +682,10 @@ bookingForm.addEventListener(
         }
 
 
-        // SUKSES
+        // ZGJIDH MËNYRËN E KONTAKTIT
 
-        bookingMessage.textContent =
-            "Kërkesa u dërgua me sukses! 🤎";
-
+bookingMessage.textContent =
+    "Zgjidh mënyrën e kontaktit 🤎";
 
         // =========================
         // WHATSAPP
