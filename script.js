@@ -103,6 +103,8 @@ let busyTimes = [];
 
 openCalendarButton.addEventListener("click", function () {
 
+    alert("BUTONI PUNON");
+
     calendarContainer.style.display = "block";
 
     openCalendarButton.style.display = "none";
