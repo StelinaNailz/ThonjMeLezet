@@ -721,4 +721,4 @@ bookingForm.addEventListener(
         bookingForm.reset();
     }
 );
-```
+
