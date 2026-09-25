@@ -1,1215 +1,1211 @@
 <!DOCTYPE html>
-
 <html lang="sq">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Stelina | Nail Artist</title>
-
-<!-- FONTE -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-    :root {
-        --cream: #f8f4ee;
-        --beige: #e9dfd2;
-        --taupe: #b9aa9b;
-        --brown: #6b594d;
-        --dark: #302a26;
-        --white: #fffdf9;
-        --red: #9b4b4b;
-        --green: #71856d;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        background: var(--cream);
-        color: var(--dark);
-        font-family: "Inter", sans-serif;
-        font-weight: 300;
-        line-height: 1.6;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    /* NAVBAR */
-
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 24px 7%;
-        background: rgba(248, 244, 238, 0.88);
-        backdrop-filter: blur(10px);
-        z-index: 1000;
-        border-bottom: 1px solid rgba(107, 89, 77, 0.08);
-    }
-
-    .logo {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 30px;
-        letter-spacing: 2px;
-        font-weight: 500;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 35px;
-        list-style: none;
-        font-size: 12px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-    }
-
-    .nav-links a {
-        position: relative;
-    }
-
-    .nav-links a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -6px;
-        width: 0;
-        height: 1px;
-        background: var(--brown);
-        transition: 0.3s;
-    }
-
-    .nav-links a:hover::after {
-        width: 100%;
-    }
-
-    /* HERO */
-
-    .hero {
-        min-height: 100vh;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        gap: 8%;
-        padding: 130px 8% 80px;
-    }
-
-    .hero-text {
-        animation: fadeUp 1s ease forwards;
-    }
-
-    .small-title {
-        font-size: 11px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: var(--brown);
-        margin-bottom: 25px;
-    }
-
-    .hero h1 {
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(65px, 8vw, 115px);
-        line-height: 0.85;
-        font-weight: 400;
-        margin-bottom: 35px;
-    }
-
-    .hero h1 span {
-        display: block;
-        font-style: italic;
-    }
-
-    .hero-description {
-        max-width: 420px;
-        font-size: 15px;
-        color: #756960;
-        margin-bottom: 40px;
-    }
-
-    .booking-button {
-        display: inline-block;
-        padding: 15px 30px;
-        background: var(--brown);
-        color: var(--white);
-        font-size: 11px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        transition: 0.3s;
-        border: none;
-        cursor: pointer;
-    }
-
-    .booking-button:hover {
-        background: var(--dark);
-        transform: translateY(-3px);
-    }
-
-    /* FOTO HERO */
-
-    .hero-image {
-        height: 650px;
-        background: var(--beige);
-        position: relative;
-        overflow: hidden;
-        animation: fadeIn 1.3s ease forwards;
-    }
-
-    .hero-image-placeholder {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Cormorant Garamond", serif;
-        font-size: 28px;
-        color: var(--brown);
-    }
-
-    .image-label {
-        position: absolute;
-        bottom: 25px;
-        left: 25px;
-        font-size: 10px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        background: rgba(255, 253, 249, 0.85);
-        padding: 10px 15px;
-    }
-
-    /* ABOUT */
-
-    .about {
-        padding: 150px 12%;
-        display: grid;
-        grid-template-columns: 0.7fr 1.3fr;
-        gap: 100px;
-        background: var(--white);
-    }
-
-    .section-number {
-        font-size: 11px;
-        letter-spacing: 3px;
-        color: var(--brown);
-    }
-
-    .about h2,
-    .molla h2,
-    .booking h2,
-    .contact h2 {
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(50px, 6vw, 80px);
-        font-weight: 400;
-        line-height: 0.95;
-        margin-bottom: 35px;
-    }
-
-    .about-text {
-        max-width: 600px;
-        font-size: 17px;
-        color: #70645c;
-    }
-
-    .about-text p {
-        margin-bottom: 20px;
-    }
-
-    /* MOLLA */
-
-    .molla {
-        padding: 150px 8%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8%;
-        align-items: center;
-    }
-
-    .molla-image {
-        height: 550px;
-        background: var(--beige);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Cormorant Garamond", serif;
-        font-size: 28px;
-        color: var(--brown);
-    }
-
-    .molla-content {
-        max-width: 500px;
-    }
-
-    .molla-content p {
-        color: #70645c;
-        font-size: 16px;
-        margin-bottom: 25px;
-    }
-
-    .molla-quote {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 27px;
-        font-style: italic;
-        color: var(--brown);
-    }
-
-    /* BOOKING */
-
-    .booking {
-        background: var(--beige);
-        padding: 150px 8%;
-        text-align: center;
-    }
-
-    .booking-intro {
-        max-width: 500px;
-        margin: 0 auto 50px;
-        color: #6e625a;
-    }
-
-    .booking-box {
-        max-width: 900px;
-        margin: auto;
-        background: var(--white);
-        padding: 60px 50px;
-        text-align: left;
-        border: 1px solid rgba(107, 89, 77, 0.1);
-    }
-
-    .booking-box h3 {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 35px;
-        font-weight: 400;
-        margin-bottom: 15px;
-    }
-
-    .booking-box p {
-        color: #756960;
-        margin-bottom: 25px;
-    }
-
-    .booking-note {
-        font-size: 12px;
-        color: #8b7e74;
-        margin-top: 20px;
-    }
-
-    /* KALENDARI */
-
-    #calendarContainer {
-        display: none;
-        margin-top: 35px;
-    }
-
-    .calendar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-    }
-
-    .calendar-header h3 {
-        margin: 0;
-    }
-
-    .calendar-nav {
-        display: flex;
-        gap: 10px;
-    }
-
-    .calendar-nav button {
-        width: 42px;
-        height: 42px;
-        border: 1px solid rgba(107, 89, 77, 0.2);
-        background: var(--cream);
-        color: var(--dark);
-        cursor: pointer;
-        font-size: 18px;
-        transition: 0.2s;
-    }
-
-    .calendar-nav button:hover {
-        background: var(--beige);
-    }
-
-    .calendar-weekdays {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 8px;
-        margin-bottom: 8px;
-    }
-
-    .calendar-weekdays div {
-        text-align: center;
-        font-size: 10px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: var(--brown);
-        padding: 8px 0;
-    }
-
-    .calendar-days {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 8px;
-    }
-
-    .calendar-day {
-        min-height: 95px;
-        border: 1px solid rgba(107, 89, 77, 0.12);
-        background: var(--cream);
-        padding: 10px;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-    .calendar-day:hover {
-        transform: translateY(-2px);
-        border-color: var(--brown);
-    }
-
-    .calendar-day.empty {
-        background: transparent;
-        border: none;
-        cursor: default;
-    }
-
-    .calendar-day.empty:hover {
-        transform: none;
-    }
-
-    .day-number {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 22px;
-        margin-bottom: 8px;
-    }
-
-    .day-status {
-        font-size: 9px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: var(--brown);
-    }
-
-    .calendar-day.today {
-        border: 1px solid var(--brown);
-    }
-
-    .calendar-day.selected {
-        background: var(--brown);
-        color: var(--white);
-    }
-
-    .calendar-day.selected .day-status {
-        color: var(--white);
-    }
-
-    /* ORARET */
-
-    #timesContainer {
-        display: none;
-        margin-top: 40px;
-        padding-top: 35px;
-        border-top: 1px solid rgba(107, 89, 77, 0.15);
-    }
-
-    .selected-date-title {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-
-    .times-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-    }
-
-    .time-slot {
-        padding: 14px 8px;
-        border: 1px solid rgba(107, 89, 77, 0.2);
-        background: var(--cream);
-        text-align: center;
-        cursor: pointer;
-        font-family: "Inter", sans-serif;
-        font-size: 13px;
-        transition: 0.2s;
-    }
-
-    .time-slot:hover {
-        border-color: var(--brown);
-        transform: translateY(-2px);
-    }
-
-    .time-slot.busy {
-        background: #ead6d6;
-        border-color: #c99494;
-        color: var(--red);
-        cursor: not-allowed;
-    }
-
-    .time-slot.busy:hover {
-        transform: none;
-    }
-
-    .time-slot.selected {
-        background: var(--brown);
-        border-color: var(--brown);
-        color: var(--white);
-    }
-
-    /* FORMULARI */
-
-    #bookingForm {
-        display: none;
-        margin-top: 40px;
-        padding-top: 35px;
-        border-top: 1px solid rgba(107, 89, 77, 0.15);
-    }
-
-    .form-title {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 32px;
-        margin-bottom: 25px;
-    }
-
-    .form-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
-    }
-
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 7px;
-    }
-
-    .form-group.full {
-        grid-column: 1 / -1;
-    }
-
-    .form-group label {
-        font-size: 10px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        color: var(--brown);
-    }
-
-    .form-group input {
-        width: 100%;
-        padding: 14px;
-        border: 1px solid rgba(107, 89, 77, 0.2);
-        background: var(--cream);
-        color: var(--dark);
-        font-family: "Inter", sans-serif;
-        outline: none;
-    }
-
-    .form-group input:focus {
-        border-color: var(--brown);
-    }
-
-    #confirmBooking {
-        margin-top: 25px;
-    }
-
-    #bookingMessage {
-        margin-top: 20px;
-        font-size: 13px;
-    }
-
-    /* KONTAKT BUTONAT */
-
-    #contactOptions {
-        display: none;
-        margin-top: 25px;
-        padding-top: 25px;
-        border-top: 1px solid rgba(107, 89, 77, 0.15);
-    }
-
-    .contact-options-title {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 24px;
-        margin-bottom: 15px;
-    }
-
-    .contact-buttons {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    .contact-button {
-        display: inline-block;
-        padding: 13px 22px;
-        border: 1px solid var(--brown);
-        background: var(--cream);
-        color: var(--dark);
-        font-size: 11px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        transition: 0.3s;
-    }
-
-    .contact-button:hover {
-        background: var(--brown);
-        color: var(--white);
-    }
-
-    /* CONTACT */
-
-    .contact {
-        padding: 130px 8%;
-        background: var(--cream);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-    }
-
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    .contact-item {
-        border-bottom: 1px solid rgba(107, 89, 77, 0.15);
-        padding-bottom: 20px;
-    }
-
-    .contact-item span {
-        display: block;
-        font-size: 10px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--brown);
-        margin-bottom: 5px;
-    }
-
-    .contact-item p,
-    .contact-item a {
-        font-size: 16px;
-    }
-
-    .instagram {
-        transition: 0.3s;
-    }
-
-    .instagram:hover {
-        color: var(--brown);
-    }
-
-    /* FOOTER */
-
-    footer {
-        padding: 30px 8%;
-        background: var(--dark);
-        color: var(--cream);
-        display: flex;
-        justify-content: space-between;
-        font-size: 11px;
-        letter-spacing: 1px;
-    }
-
-    /* ANIMATIONS */
-
-    @keyframes fadeUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
+    <title>Stelina | Nail Artist</title>
+
+    <!-- FONTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --cream: #f8f4ee;
+            --beige: #e9dfd2;
+            --taupe: #b9aa9b;
+            --brown: #6b594d;
+            --dark: #302a26;
+            --white: #fffdf9;
+            --red: #9b4b4b;
+            --green: #71856d;
         }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        to {
-            opacity: 1;
+        html {
+            scroll-behavior: smooth;
         }
-    }
 
-    /* RESPONSIVE */
+        body {
+            background: var(--cream);
+            color: var(--dark);
+            font-family: "Inter", sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
 
-    @media (max-width: 800px) {
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
 
         nav {
-            padding: 20px 6%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 7%;
+            background: rgba(248, 244, 238, 0.88);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(107, 89, 77, 0.08);
+        }
+
+        .logo {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            letter-spacing: 2px;
+            font-weight: 500;
         }
 
         .nav-links {
-            gap: 15px;
-            font-size: 9px;
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 1px;
+            background: var(--brown);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+
         .hero {
-            grid-template-columns: 1fr;
-            padding: 130px 6% 70px;
-            gap: 50px;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 8%;
+            padding: 130px 8% 80px;
+        }
+
+        .hero-text {
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .small-title {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brown);
+            margin-bottom: 25px;
         }
 
         .hero h1 {
-            font-size: 75px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(65px, 8vw, 115px);
+            line-height: 0.85;
+            font-weight: 400;
+            margin-bottom: 35px;
         }
+
+        .hero h1 span {
+            display: block;
+            font-style: italic;
+        }
+
+        .hero-description {
+            max-width: 420px;
+            font-size: 15px;
+            color: #756960;
+            margin-bottom: 40px;
+        }
+
+        .booking-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--brown);
+            color: var(--white);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .booking-button:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        /* FOTO HERO */
 
         .hero-image {
-            height: 500px;
+            height: 650px;
+            background: var(--beige);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.3s ease forwards;
         }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            color: var(--brown);
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: rgba(255, 253, 249, 0.85);
+            padding: 10px 15px;
+        }
+
+        /* ABOUT */
 
         .about {
-            grid-template-columns: 1fr;
-            padding: 100px 8%;
-            gap: 40px;
+            padding: 150px 12%;
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 100px;
+            background: var(--white);
         }
 
+        .section-number {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--brown);
+        }
+
+        .about h2,
+        .molla h2,
+        .booking h2,
+        .contact h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(50px, 6vw, 80px);
+            font-weight: 400;
+            line-height: 0.95;
+            margin-bottom: 35px;
+        }
+
+        .about-text {
+            max-width: 600px;
+            font-size: 17px;
+            color: #70645c;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* MOLLA */
+
         .molla {
-            grid-template-columns: 1fr;
-            padding: 100px 6%;
-            gap: 50px;
+            padding: 150px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8%;
+            align-items: center;
         }
 
         .molla-image {
-            height: 450px;
+            height: 550px;
+            background: var(--beige);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            color: var(--brown);
         }
 
+        .molla-content {
+            max-width: 500px;
+        }
+
+        .molla-content p {
+            color: #70645c;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .molla-quote {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 27px;
+            font-style: italic;
+            color: var(--brown);
+        }
+
+        /* BOOKING */
+
         .booking {
-            padding: 100px 6%;
+            background: var(--beige);
+            padding: 150px 8%;
+            text-align: center;
+        }
+
+        .booking-intro {
+            max-width: 500px;
+            margin: 0 auto 50px;
+            color: #6e625a;
         }
 
         .booking-box {
-            padding: 40px 25px;
+            max-width: 900px;
+            margin: auto;
+            background: var(--white);
+            padding: 60px 50px;
+            text-align: left;
+            border: 1px solid rgba(107, 89, 77, 0.1);
         }
 
-        .calendar-weekdays,
+        .booking-box h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 35px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .booking-box p {
+            color: #756960;
+            margin-bottom: 25px;
+        }
+
+        .booking-note {
+            font-size: 12px;
+            color: #8b7e74;
+            margin-top: 20px;
+        }
+
+        /* KALENDARI */
+
+        #calendarContainer {
+            display: none;
+            margin-top: 35px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .calendar-header h3 {
+            margin: 0;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .calendar-nav button {
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(107, 89, 77, 0.2);
+            background: var(--cream);
+            color: var(--dark);
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .calendar-nav button:hover {
+            background: var(--beige);
+        }
+
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .calendar-weekdays div {
+            text-align: center;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--brown);
+            padding: 8px 0;
+        }
+
         .calendar-days {
-            gap: 4px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
         }
 
         .calendar-day {
-            min-height: 75px;
-            padding: 6px;
+            min-height: 95px;
+            border: 1px solid rgba(107, 89, 77, 0.12);
+            background: var(--cream);
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .calendar-day:hover {
+            transform: translateY(-2px);
+            border-color: var(--brown);
+        }
+
+        .calendar-day.empty {
+            background: transparent;
+            border: none;
+            cursor: default;
+        }
+
+        .calendar-day.empty:hover {
+            transform: none;
         }
 
         .day-number {
-            font-size: 18px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .day-status {
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--brown);
+        }
+
+        .calendar-day.today {
+            border: 1px solid var(--brown);
+        }
+
+        .calendar-day.selected {
+            background: var(--brown);
+            color: var(--white);
+        }
+
+        .calendar-day.selected .day-status {
+            color: var(--white);
+        }
+
+        /* ORARET */
+
+        #timesContainer {
+            display: none;
+            margin-top: 40px;
+            padding-top: 35px;
+            border-top: 1px solid rgba(107, 89, 77, 0.15);
+        }
+
+        .selected-date-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            margin-bottom: 20px;
         }
 
         .times-grid {
-            grid-template-columns: repeat(2, 1fr);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .time-slot {
+            padding: 14px 8px;
+            border: 1px solid rgba(107, 89, 77, 0.2);
+            background: var(--cream);
+            text-align: center;
+            cursor: pointer;
+            font-family: "Inter", sans-serif;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .time-slot:hover {
+            border-color: var(--brown);
+            transform: translateY(-2px);
+        }
+
+        .time-slot.busy {
+            background: #ead6d6;
+            border-color: #c99494;
+            color: var(--red);
+            cursor: not-allowed;
+        }
+
+        .time-slot.busy:hover {
+            transform: none;
+        }
+
+        .time-slot.selected {
+            background: var(--brown);
+            border-color: var(--brown);
+            color: var(--white);
+        }
+
+        /* FORMULARI */
+
+        #bookingForm {
+            display: none;
+            margin-top: 40px;
+            padding-top: 35px;
+            border-top: 1px solid rgba(107, 89, 77, 0.15);
+        }
+
+        .form-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 32px;
+            margin-bottom: 25px;
         }
 
         .form-grid {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
         }
 
         .form-group.full {
-            grid-column: auto;
+            grid-column: 1 / -1;
         }
 
-        .contact {
-            grid-template-columns: 1fr;
-            padding: 100px 8%;
-            gap: 50px;
+        .form-group label {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--brown);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(107, 89, 77, 0.2);
+            background: var(--cream);
+            color: var(--dark);
+            font-family: "Inter", sans-serif;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--brown);
+        }
+
+        #confirmBooking {
+            margin-top: 25px;
+        }
+
+        #bookingMessage {
+            margin-top: 20px;
+            font-size: 13px;
+        }
+
+        /* KONTAKT BUTONAT */
+
+        #contactOptions {
+            display: none;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(107, 89, 77, 0.15);
+        }
+
+        .contact-options-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 24px;
+            margin-bottom: 15px;
         }
 
         .contact-buttons {
-            flex-direction: column;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .contact-button {
-            text-align: center;
+            display: inline-block;
+            padding: 13px 22px;
+            border: 1px solid var(--brown);
+            background: var(--cream);
+            color: var(--dark);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
+
+        .contact-button:hover {
+            background: var(--brown);
+            color: var(--white);
+        }
+
+        /* CONTACT */
+
+        .contact {
+            padding: 130px 8%;
+            background: var(--cream);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            border-bottom: 1px solid rgba(107, 89, 77, 0.15);
+            padding-bottom: 20px;
+        }
+
+        .contact-item span {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brown);
+            margin-bottom: 5px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            font-size: 16px;
+        }
+
+        .instagram {
+            transition: 0.3s;
+        }
+
+        .instagram:hover {
+            color: var(--brown);
+        }
+
+        /* FOOTER */
 
         footer {
-            flex-direction: column;
-            gap: 10px;
-            text-align: center;
+            padding: 30px 8%;
+            background: var(--dark);
+            color: var(--cream);
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            letter-spacing: 1px;
         }
-    }
 
-</style>
-```
+        /* ANIMATIONS */
 
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 20px 6%;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 9px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 130px 6% 70px;
+                gap: 50px;
+            }
+
+            .hero h1 {
+                font-size: 75px;
+            }
+
+            .hero-image {
+                height: 500px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                padding: 100px 8%;
+                gap: 40px;
+            }
+
+            .molla {
+                grid-template-columns: 1fr;
+                padding: 100px 6%;
+                gap: 50px;
+            }
+
+            .molla-image {
+                height: 450px;
+            }
+
+            .booking {
+                padding: 100px 6%;
+            }
+
+            .booking-box {
+                padding: 40px 25px;
+            }
+
+            .calendar-weekdays,
+            .calendar-days {
+                gap: 4px;
+            }
+
+            .calendar-day {
+                min-height: 75px;
+                padding: 6px;
+            }
+
+            .day-number {
+                font-size: 18px;
+            }
+
+            .times-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .contact {
+                grid-template-columns: 1fr;
+                padding: 100px 8%;
+                gap: 50px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-button {
+                text-align: center;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-```
-<!-- NAVBAR -->
+    <!-- NAVBAR -->
 
-<nav>
+    <nav>
 
-    <a href="#home" class="logo">
-        STELINA
-    </a>
-
-    <ul class="nav-links">
-
-        <li>
-            <a href="#home">Home</a>
-        </li>
-
-        <li>
-            <a href="#about">Rreth Meje</a>
-        </li>
-
-        <li>
-            <a href="#molla">Molla</a>
-        </li>
-
-        <li>
-            <a href="#booking">Rezervo</a>
-        </li>
-
-    </ul>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="hero-text">
-
-        <div class="small-title">
-            Nail Artist · Shkodër
-        </div>
-
-        <h1>
-            Thonj
-            <span>me Lezet.</span>
-        </h1>
-
-        <p class="hero-description">
-            Kujdes, detaje dhe pak art në çdo set.
-            Një hapësirë e vogël ku thonjtë bëhen
-            pjesë e stilit tënd.
-        </p>
-
-        <a href="#booking" class="booking-button">
-            Rezervo një takim
+        <a href="#home" class="logo">
+            STELINA
         </a>
 
-    </div>
+        <ul class="nav-links">
 
-    <div class="hero-image">
+            <li>
+                <a href="#home">Home</a>
+            </li>
 
-        <div class="hero-image-placeholder">
-            FOTO E STELINËS
-        </div>
+            <li>
+                <a href="#about">Rreth Meje</a>
+            </li>
 
-        <div class="image-label">
-            Stelina · Nail Artist
-        </div>
+            <li>
+                <a href="#molla">Molla</a>
+            </li>
 
-    </div>
+            <li>
+                <a href="#booking">Rezervo</a>
+            </li>
 
-</section>
+        </ul>
 
-<!-- ABOUT -->
+    </nav>
 
-<section class="about" id="about">
+    <!-- HERO -->
 
-    <div>
+    <section class="hero" id="home">
 
-        <div class="section-number">
-            01 — RRETH MEJE
-        </div>
+        <div class="hero-text">
 
-    </div>
-
-    <div class="about-text">
-
-        <h2>
-            Përshëndetje,<br>
-            jam Stelina.
-        </h2>
-
-        <p>
-            Nail artist nga Shkodra, e apasionuar pas
-            detajeve të vogla që bëjnë diferencën.
-        </p>
-
-        <p>
-            Për mua, një set thonjsh nuk është thjesht
-            një shërbim. Është një mënyrë për t'u
-            ndjerë bukur, të kuruar dhe pak më shumë
-            vetvetja.
-        </p>
-
-        <p>
-            Çdo takim është një moment për ty —
-            i qetë, personal dhe me shumë kujdes.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- MOLLA -->
-
-<section class="molla" id="molla">
-
-    <div class="molla-image">
-        FOTO E MOLLES
-    </div>
-
-    <div class="molla-content">
-
-        <div class="small-title">
-            Meet my assistant
-        </div>
-
-        <h2>
-            Molla.
-        </h2>
-
-        <p>
-            Kjo është Molla, asistentja ime personale.
-            Ajo nuk merret shumë me thonjtë...
-            por sigurohet që atmosfera të jetë gjithmonë
-            e duhur.
-        </p>
-
-        <p>
-            Detyrat e saj kryesore përfshijnë:
-            gjumin, kontrollin e territorit dhe
-            marrjen e vëmendjes.
-        </p>
-
-        <div class="molla-quote">
-            “She runs the studio. I just do the nails.”
-        </div>
-
-    </div>
-
-</section>
-
-<!-- BOOKING -->
-
-<section class="booking" id="booking">
-
-    <div class="small-title">
-        03 — BOOKING
-    </div>
-
-    <h2>
-        Kërko një takim
-    </h2>
-
-    <p class="booking-intro">
-        Zgjidh një datë dhe shiko të gjitha oraret.
-        Orari i zënë shfaqet me të kuqe.
-    </p>
-
-    <div class="booking-box">
-
-        <h3>
-            Kërkesa jote
-        </h3>
-
-        <p>
-            Zgjidh një datë nga kalendari për të parë
-            oraret e lira dhe të zëna.
-        </p>
-
-        <button id="openCalendar" class="booking-button">
-            Hap kalendarin
-        </button>
-
-        <!-- KALENDARI -->
-
-        <div id="calendarContainer">
-
-            <div class="calendar-header">
-
-                <h3 id="calendarMonth">
-                    Muaji
-                </h3>
-
-                <div class="calendar-nav">
-
-                    <button id="prevMonth">
-                        ←
-                    </button>
-
-                    <button id="nextMonth">
-                        →
-                    </button>
-
-                </div>
-
+            <div class="small-title">
+                Nail Artist · Shkodër
             </div>
 
-            <div class="calendar-weekdays">
+            <h1>
+                Thonj
+                <span>me Lezet.</span>
+            </h1>
 
-                <div>Hën</div>
-                <div>Mar</div>
-                <div>Mër</div>
-                <div>Enj</div>
-                <div>Pre</div>
-                <div>Sht</div>
-                <div>Die</div>
+            <p class="hero-description">
+                Kujdes, detaje dhe pak art në çdo set.
+                Një hapësirë e vogël ku thonjtë bëhen
+                pjesë e stilit tënd.
+            </p>
 
-            </div>
-
-            <div id="calendarDays" class="calendar-days">
-            </div>
-
-        </div>
-
-        <!-- ORARET -->
-
-        <div id="timesContainer">
-
-            <div id="selectedDateTitle" class="selected-date-title">
-                Zgjidh orarin
-            </div>
-
-            <div id="timesGrid" class="times-grid">
-            </div>
-
-        </div>
-
-        <!-- FORMULARI -->
-
-        <form id="bookingForm">
-
-            <div class="form-title">
-                Të dhënat e tua
-            </div>
-
-            <div class="form-grid">
-
-                <div class="form-group">
-
-                    <label for="firstName">
-                        Emër
-                    </label>
-
-                    <input
-                        type="text"
-                        id="firstName"
-                        required
-                        placeholder="Emri"
-                    >
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="surname">
-                        Mbiemër
-                    </label>
-
-                    <input
-                        type="text"
-                        id="surname"
-                        required
-                        placeholder="Mbiemri"
-                    >
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="phone">
-                        Nr. celular
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        required
-                        placeholder="06X XXX XXXX"
-                    >
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="instagram">
-                        Instagram
-                    </label>
-
-                    <input
-                        type="text"
-                        id="instagram"
-                        required
-                        placeholder="@username"
-                    >
-
-                </div>
-
-            </div>
-
-            <button
-                type="submit"
-                id="confirmBooking"
-                class="booking-button">
-
-                Dërgo kërkesën
-
-            </button>
-
-            <div id="bookingMessage">
-            </div>
-
-            <!-- OPSIONET PAS KËRKESËS -->
-
-            <div id="contactOptions">
-
-                <div class="contact-options-title">
-                    Kontakto Stelina
-                </div>
-
-                <div class="contact-buttons">
-
-                    <a
-                        id="instagramButton"
-                        class="contact-button"
-                        href="https://instagram.com/stelina_nailzz"
-                        target="_blank">
-
-                        📸 Instagram
-
-                    </a>
-
-                    <a
-                        id="whatsappButton"
-                        class="contact-button"
-                        href="#"
-                        target="_blank">
-
-                        💬 WhatsApp
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </form>
-
-        <div class="booking-note">
-            Orari përditësohet nga Stelina.
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-    <div>
-
-        <div class="small-title">
-            04 — CONTACT
-        </div>
-
-        <h2>
-            Hajde<br>
-            të takohemi.
-        </h2>
-
-    </div>
-
-    <div class="contact-info">
-
-        <div class="contact-item">
-
-            <span>
-                Instagram
-            </span>
-
-            <a
-                href="https://instagram.com/stelina_nailzz"
-                target="_blank"
-                class="instagram">
-
-                @stelina_nailzz
-
+            <a href="#booking" class="booking-button">
+                Rezervo një takim
             </a>
 
         </div>
 
-        <div class="contact-item">
+        <div class="hero-image">
 
-            <span>
-                Location
-            </span>
+            <div class="hero-image-placeholder">
+                FOTO E STELINËS
+            </div>
+
+            <div class="image-label">
+                Stelina · Nail Artist
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div>
+
+            <div class="section-number">
+                01 — RRETH MEJE
+            </div>
+
+        </div>
+
+        <div class="about-text">
+
+            <h2>
+                Përshëndetje,<br>
+                jam Stelina.
+            </h2>
 
             <p>
-                Dragusha Gold<br>
-                Kati i dytë<br>
-                Shkodër
+                Nail artist nga Shkodra, e apasionuar pas
+                detajeve të vogla që bëjnë diferencën.
+            </p>
+
+            <p>
+                Për mua, një set thonjsh nuk është thjesht
+                një shërbim. Është një mënyrë për t'u
+                ndjerë bukur, të kuruar dhe pak më shumë
+                vetvetja.
+            </p>
+
+            <p>
+                Çdo takim është një moment për ty —
+                i qetë, personal dhe me shumë kujdes.
             </p>
 
         </div>
 
-        <div class="contact-item">
+    </section>
 
-            <span>
-                Telefon
-            </span>
+    <!-- MOLLA -->
+
+    <section class="molla" id="molla">
+
+        <div class="molla-image">
+            FOTO E MOLLES
+        </div>
+
+        <div class="molla-content">
+
+            <div class="small-title">
+                Meet my assistant
+            </div>
+
+            <h2>
+                Molla.
+            </h2>
 
             <p>
-                069 XXX XXXX
+                Kjo është Molla, asistentja ime personale.
+                Ajo nuk merret shumë me thonjtë...
+                por sigurohet që atmosfera të jetë gjithmonë
+                e duhur.
             </p>
+
+            <p>
+                Detyrat e saj kryesore përfshijnë:
+                gjumin, kontrollin e territorit dhe
+                marrjen e vëmendjes.
+            </p>
+
+            <div class="molla-quote">
+                “She runs the studio. I just do the nails.”
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <!-- BOOKING -->
 
-<!-- FOOTER -->
+    <section class="booking" id="booking">
 
-<footer>
+        <div class="small-title">
+            03 — BOOKING
+        </div>
 
-    <span>
-        © 2026 STELINA
-    </span>
+        <h2>
+            Kërko një takim
+        </h2>
 
-    <span>
-        NAIL ART · SHKODËR
-    </span>
+        <p class="booking-intro">
+            Zgjidh një datë dhe shiko të gjitha oraret.
+            Orari i zënë shfaqet me të kuqe.
+        </p>
 
-</footer>
+        <div class="booking-box">
 
-<!-- SUPABASE -->
+            <h3>
+                Kërkesa jote
+            </h3>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+            <p>
+                Zgjidh një datë nga kalendari për të parë
+                oraret e lira dhe të zëna.
+            </p>
 
-<script src="script.js"></script>
-```
+            <button id="openCalendar" class="booking-button">
+                Hap kalendarin
+            </button>
+
+            <!-- KALENDARI -->
+
+            <div id="calendarContainer">
+
+                <div class="calendar-header">
+
+                    <h3 id="calendarMonth">
+                        Muaji
+                    </h3>
+
+                    <div class="calendar-nav">
+
+                        <button id="prevMonth" type="button">
+                            ←
+                        </button>
+
+                        <button id="nextMonth" type="button">
+                            →
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="calendar-weekdays">
+
+                    <div>Hën</div>
+                    <div>Mar</div>
+                    <div>Mër</div>
+                    <div>Enj</div>
+                    <div>Pre</div>
+                    <div>Sht</div>
+                    <div>Die</div>
+
+                </div>
+
+                <div id="calendarDays" class="calendar-days">
+                </div>
+
+            </div>
+
+            <!-- ORARET -->
+
+            <div id="timesContainer">
+
+                <div id="selectedDateTitle" class="selected-date-title">
+                    Zgjidh orarin
+                </div>
+
+                <div id="timesGrid" class="times-grid">
+                </div>
+
+            </div>
+
+            <!-- FORMULARI -->
+
+            <form id="bookingForm">
+
+                <div class="form-title">
+                    Të dhënat e tua
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="firstName">
+                            Emër
+                        </label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            required
+                            placeholder="Emri"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="surname">
+                            Mbiemër
+                        </label>
+
+                        <input
+                            type="text"
+                            id="surname"
+                            required
+                            placeholder="Mbiemri"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Nr. celular
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            required
+                            placeholder="06X XXX XXXX"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="instagram">
+                            Instagram
+                        </label>
+
+                        <input
+                            type="text"
+                            id="instagram"
+                            required
+                            placeholder="@username"
+                        >
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="submit"
+                    id="confirmBooking"
+                    class="booking-button">
+
+                    Dërgo kërkesën
+
+                </button>
+
+                <div id="bookingMessage">
+                </div>
+
+                <!-- OPSIONET PAS KËRKESËS -->
+
+                <div id="contactOptions">
+
+                    <div class="contact-options-title">
+                        Kontakto Stelina
+                    </div>
+
+                    <div class="contact-buttons">
+
+                        <a
+                            id="instagramButton"
+                            class="contact-button"
+                            href="https://instagram.com/stelina_nailzz"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            📸 Instagram
+
+                        </a>
+
+                        <a
+                            id="whatsappButton"
+                            class="contact-button"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            💬 WhatsApp
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+            <div class="booking-note">
+                Orari përditësohet nga Stelina.
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <div>
+
+            <div class="small-title">
+                04 — CONTACT
+            </div>
+
+            <h2>
+                Hajde<br>
+                të takohemi.
+            </h2>
+
+        </div>
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+
+                <span>
+                    Instagram
+                </span>
+
+                <a
+                    href="https://instagram.com/stelina_nailzz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="instagram">
+
+                    @stelina_nailzz
+
+                </a>
+
+            </div>
+
+            <div class="contact-item">
+
+                <span>
+                    Location
+                </span>
+
+                <p>
+                    Dragusha Gold<br>
+                    Kati i dytë<br>
+                    Shkodër
+                </p>
+
+            </div>
+
+            <div class="contact-item">
+
+                <span>
+                    Telefon
+                </span>
+
+                <p>
+                    069 XXX XXXX
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            © 2026 STELINA
+        </span>
+
+        <span>
+            NAIL ART · SHKODËR
+        </span>
+
+    </footer>
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
-
